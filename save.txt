@@ -1,5 +1,11 @@
 # TODO
 - Event String Codes Embeding
 
+# Working on
+- Lap Data 2
+
+# Already packets done
+- Motion packets 0
+- Telemetry packets 6
 
 

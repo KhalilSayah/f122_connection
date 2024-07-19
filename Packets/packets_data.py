@@ -80,6 +80,33 @@ class LapData:
     def size(cls):
         return struct.calcsize('<IIHHf f f B B B B B B B B B B B B B B B H H B')
 
+    def to_dict(self):
+        return {
+            'm_lastLapTimeInMS': self.m_lastLapTimeInMS,
+            'm_currentLapTimeInMS': self.m_currentLapTimeInMS,
+            'm_sector1TimeInMS': self.m_sector1TimeInMS,
+            'm_sector2TimeInMS': self.m_sector2TimeInMS,
+            'm_lapDistance': self.m_lapDistance,
+            'm_totalDistance': self.m_totalDistance,
+            'm_safetyCarDelta': self.m_safetyCarDelta,
+            'm_carPosition': self.m_carPosition,
+            'm_currentLapNum': self.m_currentLapNum,
+            'm_pitStatus': self.m_pitStatus,
+            'm_numPitStops': self.m_numPitStops,
+            'm_sector': self.m_sector,
+            'm_currentLapInvalid': self.m_currentLapInvalid,
+            'm_penalties': self.m_penalties,
+            'm_warnings': self.m_warnings,
+            'm_numUnservedDriveThroughPens': self.m_numUnservedDriveThroughPens,
+            'm_numUnservedStopGoPens': self.m_numUnservedStopGoPens,
+            'm_gridPosition': self.m_gridPosition,
+            'm_driverStatus': self.m_driverStatus,
+            'm_resultStatus': self.m_resultStatus,
+            'm_pitLaneTimerActive': self.m_pitLaneTimerActive,
+            'm_pitLaneTimeInLaneInMS': self.m_pitLaneTimeInLaneInMS,
+            'm_pitStopTimerInMS': self.m_pitStopTimerInMS,
+            'm_pitStopShouldServePen': self.m_pitStopShouldServePen
+        }
 
 class FastestLap:
     def __init__(self, data: bytes):

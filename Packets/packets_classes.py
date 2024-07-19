@@ -137,13 +137,20 @@ class PacketLapData:
         offset = 24
 
         self.m_lapData = []
-        for _ in range(22):
-            lap_data = LapData(data[offset:offset + LapData.size()])
+        for _ in range(20):
+            lap_data = LapData(data[offset:offset + 44])
             self.m_lapData.append(lap_data)
             offset += LapData.size()
 
         self.m_timeTrialPBCarIdx, self.m_timeTrialRivalCarIdx = struct.unpack('<BB', data[offset:offset + 2])
 
+    def to_dict(self):
+        return {
+            'm_header': self.m_header,
+            'm_lapData': [lap_data.to_dict() for lap_data in self.m_lapData],
+            'm_timeTrialPBCarIdx': self.m_timeTrialPBCarIdx,
+            'm_timeTrialRivalCarIdx': self.m_timeTrialRivalCarIdx
+        }
 
 class PacketEventData:
     def __init__(self, data: bytes):
