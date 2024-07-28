@@ -146,7 +146,7 @@ class PacketLapData:
 
     def to_dict(self):
         return {
-            'm_header': self.m_header,
+            'm_header': self.m_header.__dict__,
             'm_lapData': [lap_data.to_dict() for lap_data in self.m_lapData],
             'm_timeTrialPBCarIdx': self.m_timeTrialPBCarIdx,
             'm_timeTrialRivalCarIdx': self.m_timeTrialRivalCarIdx
@@ -192,7 +192,7 @@ class PacketCarTelemetryData:
     def to_dict(self):
         return {
             'm_header': self.m_header.__dict__,  # Assuming PacketHeader has a to_dict method
-            'm_carTelemetryData': [car_telemetry.to_dict() for car_telemetry in self.m_carTelemetryData],
+            'm_carTelemetryData': [car_telemetry.__dict__ for car_telemetry in self.m_carTelemetryData],
             'm_mfdPanelIndex': self.m_mfdPanelIndex,
             'm_mfdPanelIndexSecondaryPlayer': self.m_mfdPanelIndexSecondaryPlayer,
             'm_suggestedGear': self.m_suggestedGear
